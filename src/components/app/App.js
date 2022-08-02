@@ -3,7 +3,7 @@ import './App.css';
 import Nav from "../Nav";
 import SignIn from "../SignIn";
 import SignUp from "../SignUp";
-import {Home,Home1, Home2} from "../Form";
+
 
 
 

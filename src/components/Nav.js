@@ -8,7 +8,7 @@ const Navigation = styled.div`
   padding: 10px;
   display: flex;
   align-items: center;
-  background-color: aquamarine;
+ 
 
   ul {
     display: table;
@@ -22,12 +22,11 @@ const NavLi = styled.li`
   min-widthwidth: fit-content;
   padding: 8px 15px;
   line-height: 1.5em;
-  border: 1px solid blue;
-  border-radius: 15px;
+ 
   &:hover {
-    background-color: blue;
     a {
-      color: whitesmoke;
+      color : burlywood;
+      cursor: pointer;
     }
   }
   
