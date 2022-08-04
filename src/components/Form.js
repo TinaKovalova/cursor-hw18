@@ -4,7 +4,7 @@ export const IconBlock = styled.div`
   width: 70px;
   height: 70px;
   border-radius: 100%;
-  background: lightskyblue url("${props => props.src}") no-repeat center;
+  background: pink url("${props => props.src}") no-repeat center;
 `;
 export const Form = styled.form`
   width: 25%;
@@ -30,11 +30,11 @@ export const Input = styled.input`
   padding: 0.5em;
   margin: 0.5em;
   width: 80%;
+  line-height: 1.7em;
   background-color: #093031;
   border-radius: 5px;
-  border: 1px solid whitesmoke;
-
-
+  border: 1px solid gray;
+  color: whitesmoke;
 `;
 
 export const InlineBlock = styled.div`
@@ -62,7 +62,7 @@ export const InlineBlock = styled.div`
 
 export const Button = styled.button`
   width: 83%;
-  line-height: 1.8em;
+  line-height: 2.5em;
   background-color: lightskyblue;
   border: none;
   border-radius: 5px;
