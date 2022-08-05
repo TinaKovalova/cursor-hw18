@@ -67,5 +67,6 @@ export const Button = styled.button`
   border: none;
   border-radius: 5px;
   margin: 1em;
+  
 
 `;

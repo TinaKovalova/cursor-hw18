@@ -3,19 +3,19 @@
 // ([A-za-z]{3,}) name
 
 export const checkFormDataValid = (text, type) => {
-    let emailRegex;
+    let regex;
     switch (type) {
         case 'email' : {
-            emailRegex=/(\w{3,}@[a-zA-Z_]{2,}?\.[a-zA-Z]{2,6})/g;
-            return emailRegex.test(text);
+            regex=/(\w{3,}@[a-zA-Z_]{2,}?\.[a-zA-Z]{2,6})/g;
+            return regex.test(text);
         }
         case 'password' : {
-            emailRegex=/((?=.*[a-z])(?=.*[A-Z]).{8,15})/g;
-            return emailRegex.test(text);
+            regex=/((?=.*[a-z])(?=.*[A-Z]).{8,15})/g;
+            return regex.test(text);
         }
-        case 'name' : {
-            emailRegex=/([A-za-z]{3,})/;
-            return emailRegex.test(text);
+        case 'text' : {
+            regex=/([A-za-z]{3,})/g;
+            return regex.test(text);
         }
     }
 }
