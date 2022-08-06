@@ -7,6 +7,6 @@ export const StyledInput = styled.input`
   line-height: 1.7em;
   background-color: #112B3C;
   border-radius: 5px;
-  border: 1px solid gray;
+  border: 3px solid gray;
   color: lightgrey;
 `;

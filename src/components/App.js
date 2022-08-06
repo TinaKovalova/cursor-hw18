@@ -1,4 +1,4 @@
-import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import {HashRouter as Router, Route, Switch} from "react-router-dom";
 import Nav from "./Nav";
 import {signIn, signUp} from "../constants";
 import AuthForm from "./AuthForm";
@@ -9,6 +9,9 @@ function App() {
             <Router>
                 <Nav/>
                 <Switch>
+                    <Route path='/' exact>
+                        <AuthForm {...signIn}/>
+                    </Route>
                     <Route path='/sign-in'>
                         <AuthForm {...signIn}/>
                     </Route>
