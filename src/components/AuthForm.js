@@ -84,6 +84,8 @@ class AuthForm extends Component {
         const {firstName, lastName, email, password, isChecked} = this.state;
         if (event.target.name === 'in') {
             if (isChecked) localStorage.setItem('user', JSON.stringify({email, password}));
+            this.props.setUserEmail(email);
+            this.props.history.replace('/home');
         } else if (event.target.name === 'up') {
             localStorage.setItem('user', JSON.stringify({
                 firstName,
@@ -127,7 +129,7 @@ class AuthForm extends Component {
                     <label htmlFor={title + '-remember-checkbox'}>{chekBoxLabel}</label>
                 </InlineBlock>
 
-                <StyledButton type='submit' name={title.split(' ')[1]} onClick={this.onClick}
+                <StyledButton type='button' name={title.split(' ')[1]} onClick={this.onClick}
                               disabled={!formIsValid}>{title}</StyledButton>
                 <InlineBlock justifyContent='space-between'>
                     <span onClick={this.onForgotPassword}>{extraAction}</span>
