@@ -1,8 +1,9 @@
-import {StyledForm, StyledInput, IconBlock, InlineBlock, StyledButton} from './styledComponents';
+import {StyledForm, StyledInput, IconBlock, InlineBlock, StyledButton, ErrorBlock} from '../styledComponents';
 import {Component} from "react";
-import {checkFormDataValid} from "../service";
-import unlock from "../assets/unlock.png";
+import {checkFormDataValid} from "../../service";
+import unlock from "../../assets/unlock.png";
 import {Link, withRouter} from "react-router-dom";
+
 
 class AuthForm extends Component {
     constructor(props) {
@@ -15,7 +16,8 @@ class AuthForm extends Component {
             password: '',
             isChecked: false,
             validation: {email: null, password: null},
-            formIsValid: this.props.title.includes('in')
+            formIsValid: this.props.title.includes('in'),
+            error: ''
         }
     }
 
@@ -56,8 +58,24 @@ class AuthForm extends Component {
         }
     }
 
-    onForgotPassword = () => {
-        localStorage.clear();
+    logIn = (registeredUser) => {
+        const {password, isChecked} = this.state;
+        if (password !== registeredUser.password) {
+            this.setState({error: 'Login or password issues'});
+        } else {
+            if (isChecked) localStorage.setItem('user', JSON.stringify({...registeredUser}));
+            this.props.setUserName(`${registeredUser.firstName} ${registeredUser.lastName}`);
+            this.props.history.replace('/home');
+        }
+    }
+    register = (users, newUser) => {
+        users ? localStorage.setItem('users', JSON.stringify({...users, ...newUser})) :
+            localStorage.setItem('users', JSON.stringify({...newUser}));
+        this.props.history.replace('/sign-in');
+    }
+
+    onForgetPassword = () => {
+        localStorage.removeItem('user');
         this.setState({email: '', password: ''});
     }
 
@@ -82,19 +100,22 @@ class AuthForm extends Component {
     onChecked = (event) => this.setState({isChecked: event.target.checked});
     onClick = (event) => {
         const {firstName, lastName, email, password, isChecked} = this.state;
+        const users = JSON.parse(localStorage.getItem('users'));
         if (event.target.name === 'in') {
-            if (isChecked) localStorage.setItem('user', JSON.stringify({email, password}));
-            this.props.setUserEmail(email);
-            this.props.history.replace('/home');
-        } else if (event.target.name === 'up') {
-            localStorage.setItem('user', JSON.stringify({
-                firstName,
-                lastName,
+            const registeredUser = users ? users[email] : null;
+            registeredUser ? this.logIn({
+                ...registeredUser,
                 email
-            }));
-            this.props.history.replace('/sign-in');
+            }) : this.setState({error: 'Account isn\'t registered yet.'});
+        } else if (event.target.name === 'up') {
+            const newUser = {[email]: {firstName, lastName, password}};
+            users && users[email] ? this.setState({error: 'This email is already registered'}) : this.register(users, newUser);
         }
     }
+    onFocus = () => {
+        if (this.state.error) this.setState({error: ''});
+    }
+
 
     validateForm = () => {
         this.setState(state => ({formIsValid: !!state.validation.email && !!state.validation.password}));
@@ -102,7 +123,7 @@ class AuthForm extends Component {
     getDataFromLocalStorage = (key) => JSON.parse(localStorage.getItem(key));
 
     render() {
-        const {isLogInForm, firstName, lastName, email, password, isChecked, formIsValid} = this.state;
+        const {isLogInForm, firstName, lastName, email, password, isChecked, formIsValid, error} = this.state;
         const {title, chekBoxLabel, extraAction, linkToText, linkTo} = this.props;
         return (
             <StyledForm>
@@ -120,19 +141,19 @@ class AuthForm extends Component {
                         </InlineBlock> : null
                 }
                 <StyledInput type='email' placeholder='Email address*' name='email' required
-                             value={email} onChange={this.onChangeText}/>
+                             value={email} onChange={this.onChangeText} onFocus={this.onFocus}/>
                 <StyledInput type='password' placeholder='Password*' name='password' required
-                             value={password} onChange={this.onChangeText}/>
+                             value={password} onChange={this.onChangeText} onFocus={this.onFocus}/>
                 <InlineBlock justifyContent='start'>
                     <input type='checkbox' id={title + '-remember-checkbox'} name='remember' checked={isChecked}
                            onChange={this.onChecked}/>
                     <label htmlFor={title + '-remember-checkbox'}>{chekBoxLabel}</label>
                 </InlineBlock>
-
                 <StyledButton type='button' name={title.split(' ')[1]} onClick={this.onClick}
                               disabled={!formIsValid}>{title}</StyledButton>
+                <ErrorBlock>{error}</ErrorBlock>
                 <InlineBlock justifyContent='space-between'>
-                    <span onClick={this.onForgotPassword}>{extraAction}</span>
+                    <span onClick={this.onForgetPassword}>{extraAction}</span>
                     <Link to={linkTo}>{linkToText}</Link>
                 </InlineBlock>
                 <p>Copyright &copy; Your Website 2022.</p>

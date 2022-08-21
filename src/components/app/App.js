@@ -1,17 +1,17 @@
 import {HashRouter as Router, Route, Switch} from "react-router-dom";
-import Nav from "./Nav";
-import {signIn, signUp} from "../constants";
-import AuthForm from "./AuthForm";
+import Nav from "../nav/Nav";
+import {signIn, signUp} from "../../constants";
+import AuthForm from "../authForm/AuthForm";
 import {Component} from "react";
-import {HomePage} from "./HomePage";
+import {HomePage} from "../homePage/HomePage";
 
 class App extends Component {
     constructor(props) {
         super(props);
-        this.state = {userEmail: ''}
+        this.state = {userName: ''};
     }
 
-    setUserEmail = (userEmail) => this.setState({userEmail})
+    setUserName = (userName) => this.setState({userName});
 
     render() {
         return (
@@ -20,10 +20,10 @@ class App extends Component {
                     <Nav/>
                     <Switch>
                         <Route path='/home'>
-                            <HomePage userEmail={this.state.userEmail}/>
+                            <HomePage userName={this.state.userName}/>
                         </Route>
                         <Route path='/sign-in'>
-                            <AuthForm {...signIn} setUserEmail={this.setUserEmail}/>
+                            <AuthForm {...signIn} setUserName={this.setUserName}/>
                         </Route>
                         <Route path='/sign-up'>
                             <AuthForm {...signUp}/>

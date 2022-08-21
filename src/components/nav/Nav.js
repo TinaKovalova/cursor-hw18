@@ -1,6 +1,6 @@
 import {Component} from "react";
 import {NavLink} from "react-router-dom";
-import {Navigation, StyledLi} from "./styledComponents";
+import {Navigation, StyledLi} from "../styledComponents";
 
 
 export default class Nav extends Component {

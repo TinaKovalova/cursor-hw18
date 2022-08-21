@@ -5,13 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ce51d65c-0ead-4833-8816-8e665d25d9dc" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/assets/crackers.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/fireworks.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/HomePage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/styledComponents/GreetinBlock.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/homePage/HomePage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/styledComponents/errorBlock/ErrorBlock.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AuthForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AuthForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/app/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AuthForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/authForm/AuthForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/HomePage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Nav.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/nav/Nav.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/styledComponents/GreetinBlock.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/styledComponents/greetingBlock/GreetinBlock.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/styledComponents/IconBlock.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/styledComponents/iconBlock/IconBlock.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/styledComponents/InlineBlock.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/styledComponents/inlineBlock/InlineBlock.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/styledComponents/Navigation.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/styledComponents/navigation/Navigation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/styledComponents/StyledButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/styledComponents/styledButton/StyledButton.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/styledComponents/StyledForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/styledComponents/styledForm/StyledForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/styledComponents/StyledInput.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/styledComponents/styledInput/StyledInput.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/styledComponents/StyledLi.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/styledComponents/styledLi/StyledLi.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/styledComponents/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/styledComponents/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,8 +71,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\WebstormProjects\hw18\src\components" />
       <recent name="D:\WebstormProjects\hw18\src\components\app" />
+      <recent name="D:\WebstormProjects\hw18\src\components\nav" />
+      <recent name="D:\WebstormProjects\hw18\src\components\homePage" />
+      <recent name="D:\WebstormProjects\hw18\src\components\authForm" />
+      <recent name="D:\WebstormProjects\hw18\src\components\styledComponents\styledLi" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -82,7 +95,8 @@
       <workItem from="1659638140379" duration="11616000" />
       <workItem from="1659724878365" duration="11791000" />
       <workItem from="1659786465997" duration="26557000" />
-      <workItem from="1659980725912" duration="5354000" />
+      <workItem from="1659980725912" duration="6360000" />
+      <workItem from="1661099225843" duration="13132000" />
     </task>
     <servers />
   </component>
